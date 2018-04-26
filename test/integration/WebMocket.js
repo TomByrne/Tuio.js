@@ -1,18 +1,18 @@
 (function() {
 
-var realWebSocket,
+var realWebSocket = WebSocket,
     serverInstance,
     clientInstance;
-    
+
+var mockSocket = require("webmocket");
+window.WebSocket = mockSocket.WebMocket;
+
 var Tuio = require("../../src/Tuio");
 Tuio.Client = require("../../src/TuioClient");
-var mockSocket = require("webmocket");
 
 QUnit.module("Integration: mock-socket", {
     setup: function() {
         var connectionUrl = "test-url";
-        // replace WebSocket constructor for each test
-        realWebSocket = WebSocket;
         window.WebSocket = mockSocket.WebMocket;
         // setup
         serverInstance = new mockSocket.MocketServer(connectionUrl);
