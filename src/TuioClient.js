@@ -12,7 +12,7 @@ if (typeof require !== "undefined") {
     Tuio.ObjectContainer = require('./TuioObjectContainer');
     Tuio.Pointer = require('./TuioPointer');
     _ = require("lodash");
-    osc = require("osc/dist/osc-browser");
+    osc = require("../libs/osc-browser");
 }
 
 Tuio.Client = Tuio.Model.extend({

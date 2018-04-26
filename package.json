@@ -23,7 +23,8 @@
   "license": "GPL-3.0",
   "dependencies": {
     "lodash": "~3.10.1",
-    "osc": "~2.0.3",
+    "long": "^4.0.0",
+    "slip": "^1.0.2",
     "ws": "~0.8.0"
   },
   "devDependencies": {
