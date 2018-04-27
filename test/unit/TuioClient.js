@@ -2,12 +2,15 @@
 
 "use strict";
 
+var realWebSocket = WebSocket;
+var mockSocket = require('webmocket');
+window.WebSocket = mockSocket.WebMocket;
+
 var Tuio = require("../../src/Tuio");
 Tuio.Client = require("../../src/TuioClient");
 var client,
     server,
-    mockSocket = require('webmocket'),
-    osc = require("osc/dist/osc-browser");
+    osc = require("../../libs/osc-browser");
     
 function writeOscMessage(address, args) {
     
@@ -274,6 +277,7 @@ QUnit.module("Tuio.Client", {
     },
 
     teardown: function() {
+        WebSocket = realWebSocket;
         server.close();
     }
 });
